@@ -1,5 +1,5 @@
 # PyTorch Face Mask Classifier
-Please open the `jupyter-notebook` for a quick demo | [Pretrained Model](https://onebox.huawei.com/p/a79f35add575531ee601c5843abead7c)
+Please open the `jupyter-notebook` for a quick demo | [Pretrained Model](https://onebox.huawei.com/p/f966671c062074cd3b62d72dd5652b0f)
 
 ## Overview
 In this project the `mobilenetv2` model is used to classify face images with/without mask.
