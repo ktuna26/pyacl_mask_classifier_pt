@@ -1,39 +1,32 @@
-# pyacl_mask_classifier_pt
+# PyTorch Face Mask Classifier
+Please open the `jupyter-notebook` for a quick demo | [Pretrained Model](https://onebox.huawei.com/p/a79f35add575531ee601c5843abead7c)
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## Overview
+In this project the `mobilenetv2` model is used to classify face images with/without mask.
 
-#### 软件架构
-软件架构说明
+## Getting started
+Install dependencies;
+- opencv-python>=3.4.2
+- Pillow
+- numpy
 
+```
+pip install -r requirements.txt
+```
+And then download the `PT` file of from the link.
 
-#### 安装教程
+### PT model -> ONNX format -> Ascend om format
+#### PT -> ONNX
+Use in the original repository  the `model/onnx_export.py` the script to convert `PT` file to `ONNX ` file.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### ONNX -> OM
+And then use in the same directory atc tool to convert `ONNX ` file to `OM` file as as follows.
+```bash
+atc --model=mask_model.onnx \
+    --framework=5 \
+    --output=mask_model \ 
+    --soc_version=Ascend310 \
+    --precision_mode=allow_fp32_to_fp16
+```
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+Finaly, open `jupyter-notebook` and run the code for demo
